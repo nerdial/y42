@@ -1,0 +1,10 @@
+{
+    "name": "nerdial/y42",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Nerdial\\Y42\\": "src/"
+        }
+    },
+    "require": {}
+}
