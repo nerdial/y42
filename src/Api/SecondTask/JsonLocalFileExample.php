@@ -2,6 +2,7 @@
 
 namespace App\Api\SecondTask;
 
+use App\Collection\ProductCollection;
 use App\Entity\Product;
 use App\Format\JsonFormat;
 use App\Storage\FileStorage;
@@ -23,11 +24,27 @@ class JsonLocalFileExample
             category: 'Car',
             price: 12000
         );
+        $secondProduct = new Product(
+            id: rand(1, 20000) * rand(1, 200),
+            title: 'First Product',
+            description: 'good description',
+            category: 'Car',
+            price: 12000
+        );
 
         $format = new JsonFormat($fileStorage);
 
 
+        // insert one record
         $format->insert($product);
+
+
+        $collection = new ProductCollection();
+        $collection->add($product);
+        $collection->add($secondProduct);
+        // batch insert
+        $format->batchInsert($collection);
+
 
         // find by id
         $item = $format->findById($product->getId());
