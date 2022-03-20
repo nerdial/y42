@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\FirstTask;
+namespace App\Stack;
 
 use App\Exception\EmptyStackException;
 use App\Exception\NullElementException;

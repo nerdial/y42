@@ -3,10 +3,10 @@
 namespace App\Api\SecondTask;
 
 use App\Entity\Product;
-use App\Format\JsonFormat;
-use App\Storage\FileStorage;
+use App\Format\XmlFormat;
+use App\Storage\FtpStorage;
 
-class JsonLocalFile
+class XmlFtpExample
 {
 
     /**
@@ -14,7 +14,14 @@ class JsonLocalFile
      */
     public function index()
     {
-        $fileStorage = new FileStorage('cache/database.json');
+        $ftpStorage = new FtpStorage(
+            host: '192.168.1.1',
+            port: 22,
+            username: 'admin',
+            password: '123456',
+            filepath: '/home/user/database/database.xml'
+        );
+
 
         $product = new Product(
             id: rand(1, 20000) * rand(1, 200),
@@ -24,8 +31,7 @@ class JsonLocalFile
             price: 12000
         );
 
-        $format = new JsonFormat($fileStorage);
-
+        $format = new XmlFormat($ftpStorage);
 
         $format->insert($product);
 
