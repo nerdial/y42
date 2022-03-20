@@ -3,9 +3,7 @@
 namespace App\Api\SecondTask;
 
 use App\Entity\Product;
-use App\Format\JsonFormat;
 use App\Format\XmlFormat;
-use App\Storage\FileStorage;
 use App\Storage\FtpStorage;
 
 class XmlFtp
