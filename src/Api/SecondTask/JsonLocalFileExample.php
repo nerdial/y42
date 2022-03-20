@@ -40,12 +40,17 @@ class JsonLocalFileExample
         // get all items from database
         $items = $format->findAll();
 
-        // where clause
+        // where clause => filter
         $items = $format->where([
             'category' => 'Car',
             'title' => 'First Product'
         ])->get();
 
+        // delete all the records with conditions
+        $items = $format->where([
+            'category' => 'Car',
+            'title' => 'First Product'
+        ])->delete();
 
         // with limit
         $items = $format->where([
