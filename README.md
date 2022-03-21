@@ -65,7 +65,7 @@ This collection and base format takes care of the database queries and convertin
 In order to add new format or storage you need to implement these interfaces:
 
 
-Lets we are adding new format to our project,
+Let's say we are adding new format to our project,
 so we should extend BaseFormat and implement two methods
 ```php
 
