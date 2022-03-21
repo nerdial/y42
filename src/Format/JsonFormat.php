@@ -17,7 +17,14 @@ class JsonFormat extends BaseFormat
         parent::__construct($this->storage);
     }
 
-
+    /**
+     * @return void
+     * User should implement prepareData,
+     * It basically means converting the content of the file into meaningful
+     * structure for the application.
+     * So in this case we are getting the content of the file which is json and
+     * converting it into entities
+     */
     public function prepareData()
     {
         $content = $this->storage->getContent();
@@ -40,6 +47,12 @@ class JsonFormat extends BaseFormat
         }
     }
 
+    /**
+     * @return void
+     * On the other hand, user must implement another method to convert
+     * all the entities into proper file structure in this case :
+     * json content and pass it to the storage to save the data.
+     */
     public function toFile()
     {
         $data = [];

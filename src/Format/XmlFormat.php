@@ -2,7 +2,6 @@
 
 namespace App\Format;
 
-use App\Entity\Product;
 use App\Interface\StorageInterface;
 
 
@@ -17,24 +16,12 @@ class XmlFormat extends BaseFormat
 
     }
 
-
     public function prepareData()
     {
         $content = $this->storage->getContent();
 
         if (!empty($content)) {
-            $items = json_decode($this->storage->getContent());
-
-            foreach ($items as $item) {
-                $product = new Product(
-                    id: $item->id,
-                    title: $item->title,
-                    description: $item->description,
-                    category: $item->category,
-                    price: $item->price
-                );
-                $this->collection->add($product);
-            }
+            // you need to convert the xml content into collections and entities here
         }
 
 
@@ -42,7 +29,8 @@ class XmlFormat extends BaseFormat
 
     public function toFile()
     {
-       // to file implementation
+        // convert collections to xml  and save it
+        // to file implementation
     }
 
 
