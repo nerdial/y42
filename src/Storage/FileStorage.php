@@ -13,13 +13,13 @@ class FileStorage implements StorageInterface
 
     public function save(string $data): bool
     {
-        $file = fopen($this->filepath, 'w+');
+        $file = $this->open();
         return fwrite($file, $data);
     }
 
     public function open()
     {
-        $file = fopen($this->filepath, 'w+');
+        return fopen($this->filepath, 'w+');
     }
 
     public function getContent(): string
