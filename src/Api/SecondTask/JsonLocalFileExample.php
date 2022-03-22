@@ -15,7 +15,7 @@ class JsonLocalFileExample
      */
     public function index()
     {
-        $fileStorage = new FileStorage('cache/database.json');
+        $fileStorage = new FileStorage('database.json');
 
         $product = new Product(
             id: rand(1, 20000) * rand(1, 200),

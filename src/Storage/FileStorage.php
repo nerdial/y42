@@ -9,6 +9,7 @@ class FileStorage implements StorageInterface
 
     public function __construct(private string $filepath)
     {
+        $this->open();
     }
 
     public function save(string $data): bool
